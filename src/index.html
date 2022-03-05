@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tab headers-->
+    <title>Hennry's Farm</title>
+
+    <!-- Css Links-->
+    <link rel="stylesheet" href="./src/style.css">
+    <script type="module" src="./src/game/main.js" defer></script>
+  
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Hennry's Happy Farm</h1>
+        </header>
+        <section class="canvas_box" id="canvas_box">
+            <canvas id="canvas">
+                Error With the Canvas, Please use a browser that suports HTML5 (Such as Chromium based browsers or Firefox)
+            </canvas>
+            <p class="puns" id="hennry_puns">Let's explore the farm!!</p>
+        </section>
+        <div class="buttons">
+            <button class="nextlevel" id="nextlevel">Next Level</button> 
+        </div>
+        <section class="stats">
+            <p><i id="HP">100</i>/100 HP</p>
+            <p>Level: <i id="LvL">Home</i></p>
+        </section>
+        <section class="info"id="info">
+            <h2>Vocabulary</h2>
+                <h5>Egg: An oval or round object laid by a female bird, reptile, fish, or invertebrate, usually containing a developing embryo. The eggs of birds are enclosed in a chalky shell, while those of reptiles are in a leathery membrane.</h3>
+                <h5>Keel: A ridge along the breastbone of many birds to which the flight muscles are attached; the carina.</h5>
+                <h5>Hen: A female bird, especially of a domestic fowl.</h5>
+                <h5>Chick: A young bird, especially one newly hatched.</h5>
+                <h5>Peck: A stroke or bite by a bird with its beak.</h5>
+                <h5>Chicken: A domestic fowl kept for its eggs or meat, especially a young one.</h5>
+                <h5>Wattle: A fleshy wrinkled and often brightly colored fold of skin hanging from the neck or throat of certain birds (chickens and turkeys) or lizards.</h5>
+                <h5>Chook: A chicken, especially a hen.</h5>
+                <h5>Preen: Tidy and clean its feathers with its beak.</h5>
+                <h5>Poultry: Domestic fowl, such as chickens, turkeys, ducks, and geese.</h5>
+                <h5>Hock: The joint in a quadruped's hind leg between the knee and the fetlock, the angle of which points backwards.</h5>
+                <h5>Flock: A number of birds of one kind feeding, resting, or travelling together.</h5>
+                <h5>Roo: Sland for a rooster or cock</h5>
+                <h5>Spurs: Appendages towards the back of a rooster's shanks that are used for defensive fightind and flock protection.</h5>
+            <h2>Controls</h2>
+                <h5><bold>Space Bar</bold> to skip dialogue.</h5>
+                <h5><bold>Left Click</bold> to move to clicked position(keep pressed to dash)</h5>
+                <h5><bold>Right Click</bold> to eat (keep pressed)</h5>
+                <h5><bold>M</bold> to mute/unmute the game</h5>
+                <h5><bold>D</bold> to enable devtools(disables score mode)</h5>
+                <h5><bold>L</bold> to go to the next level</h5>
+                <h5><bold>X</bold> to delete all save data</h5>
+            <h2>How to play</h2>
+                <h5> Try to dodge the other chickens and eat special seeds to gain powers</h5>
+                <h5> <bold>Green Seeds</bold> More life(WIP)</h5>
+                <h5> <bold>Blue Seeds</bold> Shield (WIP)</h5>
+                <h5> <bold>Red Seeds</bold> Shield (WIP)</h5>
+                <h5> <bold>Yellow Seeds</bold> Shield (WIP)</h5>
+        </section>
+        <section id="introbox" class="introbox">
+            <div class="intro">
+                <p><u>Xth Day at the farm.</u><br><br>
+                I haven't seen anyone since I left New <bold>Yolk</bold> City. 
+                I have started to talk to the chickens to feel less lonely. 
+                There is this beautiful white one I've grown fond of, <input id="name" type="text" placeholder="[insert name]"/> I call her, 
+                with fethers softer than silk, and her crimson red crest. 
+                I couldn't belive my eyes, she was defending her eggs from a volie of evil hens. 
+                She is so beautiful and graceful fighting those evil doers. 
+                Her mesmerizing movements look like a dance.
+                </p>
+                <button id="start">Start Adventure</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h2><small>ISC Licence 2022</small></h2>
+        <h2><small>Made by wamu_M, TheUltronUltimate and Soviet_Moss</small></h2>
+    </footer>
+</body>
+</html>
