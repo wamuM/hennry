@@ -1,8 +1,8 @@
-import START from "./engine/loop.js"
-import Chicken from "./engine/classes/Chicken.js"
+import START from "./engine/loop.js";
+import Chicken from "./engine/classes/Chicken.js";
 import GameObject    from "./engine/classes/GameObject.js";
 import { sayRandomJoke } from "./jokes/karen.js";
-import loadLevel from "./levels/manager.js"
+import loadLevel from "./levels/manager.js";
 
 //! Settings
 window.__game = {};
@@ -71,6 +71,16 @@ player.do((dt)=>{
                 sayRandomJoke("death")
                 return;
             }   
+        }if(e.isSeed) {
+            switch (e.type) {
+                case "green":
+                    player.HP += 20;
+                    break;
+                case "red":
+                    player.speed += 2;
+                default:
+                    break;
+            }
         }
     });
 })
