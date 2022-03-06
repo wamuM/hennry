@@ -38,25 +38,25 @@ class Enemy extends Chicken{
                     if(spawnDirection == "W"){
                         if(!this.changeMovement)this.changeMovement = this.fakeRandom??randomInt(100, 740)
                         if(this.x>this.changeMovement){
-                            v = -1;
+                            this.v = -1;
                             this.animate("walk-left")
                         }
                     }else{
                         if(!this.changeMovement)this.changeMovement = this.fakeRandom??randomInt(50, 640)
                         if(this.x<this.changeMovement){
-                            v = 1;
+                            this.v = 1;
                             this.animate("walk-right")
                         }
                     }
-                    this.x += 5*dt*v;
+                    this.x += 5*dt*this.v;
                 break;
                 case "brown":
-                    this.x += 5*dt*v;
+                    this.x += 5*dt*this.v;
                 break;
                 case "dotted"://he randomly stops and goes south
                         if(!this.changeMovement)this.changeMovement = this.fakeRandom??randomInt(100, 740)
                         if(this.x <= this.changeMovement){
-                            this.x += 3*dt*v;
+                            this.x += 3*dt*this.v;
                         }else{
                             this.y += 7*dt;
                         } 
@@ -72,10 +72,10 @@ class Enemy extends Chicken{
                         chooseMovement = randomInt(0, 4) + 0.5;
                     }
                     if(chooseMovement == 0 ) {
-                        this.x += moveX*dt*v;
+                        this.x += moveX*dt*this.v;
                     
                     } else {
-                        this.y += moveY*dt*v
+                        this.y += moveY*dt*this.v
                     }
                     this.previousMove = chooseMovement;// Nice
                 break
@@ -95,13 +95,13 @@ class Enemy extends Chicken{
                         }) 
                             
                    // }
-                    this.x += 3*dt*v;
+                    this.x += 3*dt*this.v;
                     
                 break;
                 case "red"://he bounces on the south and north wall until he gets to the other side
                     if(!this.bouncing)this.bouncing=false;// what is this for?
                     //just to make sure nothing weird happens with truthy/falsy shit but it's indeed useless, like you
-                    this.x += 3*dt*v;   
+                    this.x += 3*dt*this.v;   
                     if(this.bouncing){
                             this.y += 5*dt;        
                     }else{
@@ -112,7 +112,7 @@ class Enemy extends Chicken{
                     if(this.y >= 450) this.bouncing = !this.bouncing;
                 break;
                 case "yellow"://Speeeed
-                    this.x += 9*dt*v;
+                    this.x += 9*dt*this.v;
                 break;
             }
             //death/vanishing

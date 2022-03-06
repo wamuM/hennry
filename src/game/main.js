@@ -40,7 +40,7 @@ target.isEnemy = false;
 *///--------------------------------------------------------------
 
 let player = new Chicken(100,140,{
-    src:"https://cdn.glitch.global/47dac7fb-5622-487a-8efa-0644a564c6e7/chicken.png?v=1644180661751",
+    src:"src/img/white.png",
     cellWidth:38,
     cellHeight:25,
     idle:[0,0]
@@ -55,6 +55,10 @@ player.do((dt)=>{
     if(!player.checkCollision(target))player.moveTo(target.x, target.y, player.speed*dt);
     if(window.pressedKeys.has("left_click"))player.speed -= 4;
     player.lookTowards(target,"walk")
+    // Avoiding bugs with health
+    if(player.HP > 100) {
+        player.HP = 100;
+    }
 
     //damage
     if(player.damageCooldown%2 == 1)player.hidden = true;
@@ -74,13 +78,16 @@ player.do((dt)=>{
         }if(e.isSeed) {
             switch (e.type) {
                 case "green":
-                    player.HP += 20;
+                    if (player.HP <= 80) {
+                        player.HP += 20;
+                    }
                     break;
                 case "red":
-                    player.speed += 2;
+                    player.speed += 5;
                 default:
                     break;
             }
+            window.__game.elements.remove(e.id);
         }
     });
 })

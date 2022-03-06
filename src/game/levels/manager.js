@@ -20,9 +20,9 @@ function loadLevel(levelId) {
              let data = rawData.split(":");
 
             if(rawData[0] == "#"){//if the element is a seed
-                //data.shift();//removes the # --> isn't this an array of strings?
+                //data.shift();//removes the # --> seems to cause problems so I commented it out
                 //**                           type        x                        y                decay[ms]
-                let seedObject = new Seed(data[2],Number.parseInt(data[0]),Number.parseInt(data[1]), data[3]) 
+                let seedObject = new Seed(data[3],Number.parseInt(data[1]),Number.parseInt(data[2]), data[4]) 
                 elements.push(seedObject);
             }else{
                 //if the element is an enemy
@@ -44,7 +44,7 @@ function loadLevel(levelId) {
     window.__game.rounds = rounds;
     window.__game.round = 0;
     window.__game.spawnedElementCount = rounds[window.__game.round].length;
-    window.__game.elements.add(...rounds[window.__game.round])
+    window.__game.elements.add(...rounds[window.__game.round]);
 }
 
 export default loadLevel;

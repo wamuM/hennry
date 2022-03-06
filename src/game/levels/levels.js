@@ -21,7 +21,7 @@ const levels = [
             this enemy and all other enemies after it will start moving after the waiting time has passed if specified
     */
     //tutorial levels
-     ["cyan","#200:200:green;W5:brown:2000","E2:brown;E7:brown","W3:brown;W6:brown;E2:brown"],
+    ["cyan","#:200:200:red:3000;W5:brown:2000","#:300:300:red:30000;E2:brown;E7:brown","W3:brown;W6:brown;E2:brown"],
     ["cyan","W5:yellow","can u make a fun level here made out of only yellows and or browns?"],
     ["cyan","W5:black","can u make a fun level here made out of only blacks?"],
     ["cyan","W5:red","can u make a fun level here made out of only reds?"],
