@@ -49,6 +49,7 @@ player.isPlayer = true;
 player.damage = 10;
 player.speed  = 4;
 
+
 player.do((dt)=>{
     //movement
     if(window.pressedKeys.has("left_click"))player.speed += 4;
@@ -61,7 +62,7 @@ player.do((dt)=>{
     }
 
     //damage
-    if(player.damageCooldown%2 == 1)player.hidden = true;
+    if(player.damageCooldown%10<5)player.hidden = true;
     else player.hidden = false;
     player.checkCollisions().forEach(e=>{
         if(e.isEnemy &&player.damageCooldown<=0){
@@ -70,12 +71,7 @@ player.do((dt)=>{
             if(player.HP <= 50) {
                 sayRandomJoke("lowHealth",{hp:player.HP})
             }
-            if(player.HP<0){
-                window.__game.frameStop = true;
-                sayRandomJoke("death")
-                return;
-            }   
-        }if(e.isSeed) {
+        }if(e.isSeed && player.damageCooldown <= 0) {
             switch (e.type) {
                 case "green":
                     if (player.HP <= 80) {
@@ -83,13 +79,21 @@ player.do((dt)=>{
                     }
                     break;
                 case "red":
-                    player.speed += 5;
+                    player.speed += 3;
+                    //player.SeedCooldown = 180; --> Isn't coded in yet  
                 default:
                     break;
             }
+            sayRandomJoke("eating");
             window.__game.elements.remove(e.id);
+            window.__game.spawnedElementCount -= 1;
         }
     });
+    if(player.HP<0){
+        window.__game.frameStop = true;
+        sayRandomJoke("death")
+        return;
+    }   
 })
 
 

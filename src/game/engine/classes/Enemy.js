@@ -128,9 +128,10 @@ class Enemy extends Chicken{
                         //next round
                         window.__game.round +=1;
                         if(window.__game.round<window.__game.rounds.length){ 
-                            sayRandomJoke("nextRound")
+                            //sayRandomJoke("nextRound")//this only shows up for a frame --> maybe a sleep function can fix it?
                             window.__game.spawnedElementCount = window.__game.rounds[window.__game.round].length;//load round
                             window.__game.elements.add(...window.__game.rounds[window.__game.round])
+                            sayRandomJoke("nextRound")
                             return;
                         }
                         //next level

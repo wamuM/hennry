@@ -21,10 +21,10 @@ const levels = [
             this enemy and all other enemies after it will start moving after the waiting time has passed if specified
     */
     //tutorial levels
-    ["cyan","#:200:200:red:3000;W5:brown:2000","#:300:300:red:30000;E2:brown;E7:brown","W3:brown;W6:brown;E2:brown"],
-    ["cyan","W5:yellow","can u make a fun level here made out of only yellows and or browns?"],
-    ["cyan","W5:black","can u make a fun level here made out of only blacks?"],
-    ["cyan","W5:red","can u make a fun level here made out of only reds?"],
+    ["cyan","#:200:200:green:3000;W5:brown:2000","E2:brown;E7:brown","W3:brown;W6:brown;E2:brown"],
+    ["cyan","W5:yellow","E5:yellow;W3:brown", "W5:brown;E3:yellow;W2:brown","E2:yellow;W5:brown;E2:yellow"], // can u make a fun level here made out of only yellows and or browns?
+    ["cyan","W5:black","W6:black:1000;W8:black;E7:black;W9:black:3000", "W1:black;W9:black;E3:black;E7:black;W5:black"],//only blacks
+    ["cyan","W5:red","E3:red;W3:red", "E1:red::500;E7:red:300;W1:red:900;W7:red:1100"],//reds
     //god tier madman levels
     ["black","E0:yellow;E1:yellow;E2:yellow;E3:yellow:600;E3:yellow;E4:yellow;E5:yellow;E6:yellow;E7:yellow;E8:yellow;E9:yellow","E0:black;W1:black;E2:black;W3:black;E4:black;W5:black;E6:black;W7:black;E8:black;W9:black","W3:yellow;E8:yellow"],
     ["black","E0:dotted;W8:yellow;E0:dotted:600;W8:yellow;E0:dotted:600;W8:yellow;E0:dotted:600;W8:yellow;E0:dotted:600;W8:yellow;E0:dotted:600;W8:yellow;E0:dotted:600;W8:yellow;E0:dotted:600;W8:yellow","W0:yellow;W2:yellow;W5:yellow;W7:yellow;W9:yellow;W1:yellow:500;W4:yellow;W6:yellow;W8:yellow;W0:yellow:500;W2:yellow;W5:yellow;W7:yellow;W9:yellow;W1:yellow:500;W3:yellow;W6:yellow;W8:yellow"],
