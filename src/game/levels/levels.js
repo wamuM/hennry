@@ -11,7 +11,7 @@ const levels = [
                  e.g "W5:dotted;E1:brown;E8:brown:2000"
      spawnedElement placeholder:
          - Seeds:
-            "#SpawnXCord:SpawnYCord:SeedType:decay(in ms)"
+            "#:SpawnXCord:SpawnYCord:SeedType:decay(in ms)"
                 e.g
             the seed will desapear after the decay has passed if specified
          - Enemy:
@@ -21,7 +21,7 @@ const levels = [
             this enemy and all other enemies after it will start moving after the waiting time has passed if specified
     */
     //tutorial levels
-    ["cyan","#:200:200:green:3000;W5:brown:2000","E2:brown;E7:brown","W3:brown;W6:brown;E2:brown"],
+    ["cyan","#:200:200:green;W5:brown:2000","E2:brown;E7:brown","W3:brown;W6:brown;E2:brown"],
     ["cyan","W5:yellow","E5:yellow;W3:brown", "W5:brown;E3:yellow;W2:brown","E2:yellow;W5:brown;E2:yellow"], // can u make a fun level here made out of only yellows and or browns?
     ["cyan","W5:black","W6:black:1000;W8:black;E7:black;W9:black:3000", "W1:black;W9:black;E3:black;E7:black;W5:black"],//only blacks
     ["cyan","W5:red","E3:red;W3:red", "E1:red::500;E7:red:300;W1:red:900;W7:red:1100"],//reds

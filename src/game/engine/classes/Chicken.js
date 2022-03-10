@@ -25,18 +25,19 @@ class Chicken extends GameObject{
     this.HP = 100;
     this.damageCooldown = 0
     this._meta.looking = false;
+    this._meta.lastanimationname = false
     this.do(()=>{
       if( this.damageCooldown >0){
         this.damageCooldown-=1;
-        if(this.isPlayer){
-          document.getElementById("canvas_box").style.border = "5px solid red";
-          if(this.damageCooldown<=0) document.getElementById("canvas_box").style.border = "none"
-        }
       }
 
     })
   }
   lookTowards(target,animationname){
+    if(animationname != this._meta.lastanimationname){
+        this._meta.looking = false;
+        this._meta.lastanimationname = animationname;
+    }
     if(this.x>target.x && this.x-target.x>5 && this._meta.looking !="left"){
       this._meta.looking = "left"
       this.animate(animationname+"-left")

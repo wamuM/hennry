@@ -5,7 +5,7 @@ import { sayRandomJoke } from "../jokes/karen.js";
 
 function loadLevel(levelId) {
     if(levelId == 0)return;
-    if(levelId >= levels.length+1)return sayRandomJoke("win");
+    if(levelId >= levels.length)return sayRandomJoke("win");
     let current = levels[levelId-1]//current level
     let rounds = [];
     let tbr = []
@@ -20,7 +20,7 @@ function loadLevel(levelId) {
              let data = rawData.split(":");
 
             if(rawData[0] == "#"){//if the element is a seed
-                //data.shift();//removes the # --> seems to cause problems so I commented it out
+                console.log(rawData)
                 //**                           type        x                        y                decay[ms]
                 let seedObject = new Seed(data[3],Number.parseInt(data[1]),Number.parseInt(data[2]), data[4]) 
                 elements.push(seedObject);

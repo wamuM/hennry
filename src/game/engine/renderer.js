@@ -16,7 +16,7 @@ function drawElements(elements){
     let ctx = window.__game.ctx;
     let sortedElements = elements.sort((a,b)=>a.y-b.y+window.__game.zfight)
     sortedElements.forEach(e=>{//for each element this function:
-        if(e.hiden)return;//draws nothing if the element is hidden
+        if(e.hidden)return;//draws nothing if the element is hidden
         let img = e.spriteSheat;//gets the file with all the sprites
         let row = 0;//sets up some variables
         let column = 0;

@@ -123,25 +123,24 @@ class Enemy extends Chicken{
     die(){
         window.__game.elements.remove(this.id)  
         window.__game.spawnedElementCount -= 1;
-                       //Nextlevel/round
-                       if(window.__game.spawnedElementCount <=0){
-                        //next round
-                        window.__game.round +=1;
-                        if(window.__game.round<window.__game.rounds.length){ 
-                            //sayRandomJoke("nextRound")//this only shows up for a frame --> maybe a sleep function can fix it?
-                            window.__game.spawnedElementCount = window.__game.rounds[window.__game.round].length;//load round
-                            window.__game.elements.add(...window.__game.rounds[window.__game.round])
-                            sayRandomJoke("nextRound")
-                            return;
-                        }
+        //Nextlevel/round
+        if(window.__game.spawnedElementCount <=0){
+            //next round
+            window.__game.round +=1;
+            if(window.__game.round<window.__game.rounds.length){ 
+                sayRandomJoke("nextRound")
+                window.__game.spawnedElementCount = window.__game.rounds[window.__game.round].length;//load round
+                window.__game.elements.add(...window.__game.rounds[window.__game.round])
+                return;
+            }
                         //next level
-                        document.getElementById("nextlevel").style.display = "block";
-                        window.__game.round = "none";
-                        window.__game.level += 1;
-                        localStorage.setItem("level",window.__game.level)
-                        sayRandomJoke("nextLevel")
+            document.getElementById("nextlevel").style.display = "block";
+            window.__game.round = "none";
+            window.__game.level += 1;
+            localStorage.setItem("level",window.__game.level)
+            sayRandomJoke("nextLevel")
                         return;
-                    }
+         }
     }
 }
 

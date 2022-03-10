@@ -55,43 +55,69 @@ player.do((dt)=>{
     if(window.pressedKeys.has("left_click"))player.speed += 4;
     if(!player.checkCollision(target))player.moveTo(target.x, target.y, player.speed*dt);
     if(window.pressedKeys.has("left_click"))player.speed -= 4;
-    player.lookTowards(target,"walk")
-    // Avoiding bugs with health
-    if(player.HP > 100) {
-        player.HP = 100;
-    }
 
-    //damage
-    if(player.damageCooldown%10<5)player.hidden = true;
+    //movement/eating animations
+    if(!window.pressedKeys.has("right_click"))player.lookTowards(target,"walk");
+    else  player.lookTowards(target,"eat")
+
+    //damage flashing
+    if(player.damageCooldown%2 == 1)player.hidden = true;
     else player.hidden = false;
+
+    //hitboxes
     player.checkCollisions().forEach(e=>{
+        //damage
         if(e.isEnemy &&player.damageCooldown<=0){
             player.HP -= 10;
             player.damageCooldown = 90;
             if(player.HP <= 50) {
                 sayRandomJoke("lowHealth",{hp:player.HP})
             }
-        }if(e.isSeed && player.damageCooldown <= 0) {
-            switch (e.type) {
-                case "green":
-                    if (player.HP <= 80) {
-                        player.HP += 20;
-                    }
-                    break;
-                case "red":
-                    player.speed += 3;
-                    //player.SeedCooldown = 180; --> Isn't coded in yet  
-                default:
-                    break;
+        }
+        //eating
+        if(e.isSeed) {
+            if(!player.seedTimer){
+                player.seedTimer = 50;
+                console.log("restart")
             }
-            sayRandomJoke("eating");
-            window.__game.elements.remove(e.id);
-            window.__game.spawnedElementCount -= 1;
+            if(!window.pressedKeys.has("right_click")){
+                player.seedTimer = false;
+            }else{
+                player.seedTimer -=1;
+                if(player.seedTime%10==0){
+                        e.sprite = [0,Math.floor(player.seedTimer/10)]
+                }
+                if(player.seedTimer <=0){
+                    console.log("test")
+                    switch (e.type) {
+                        case "green":
+                            if (player.HP <= 80) {
+                                player.HP += 20;
+                            }
+                            break;
+                        case "red":
+                            player.speed += 3;
+                            //player.SeedCooldown = 180; --> Isn't coded in yet  
+                        default:
+                        break;
+                    }
+                    sayRandomJoke("eating");
+                    e.die();
+                }
+            }
         }
     });
-    if(player.HP<0){
-        window.__game.frameStop = true;
+    
+    // Avoiding bugs with health
+    if(player.HP > 100) {
+        player.HP = 100;
+    }
+
+    //check if dead
+    if(player.HP<=0){
         sayRandomJoke("death")
+        window.__game.frameStop = true;
+        alert("You died")
         return;
     }   
 })

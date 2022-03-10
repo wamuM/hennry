@@ -19,7 +19,7 @@ function setUpKeyEvents(clickContext){
             case 1:window.pressedKeys.add("left_click");      break;
             case 2:window.pressedKeys.add("right_click");     break;
             case 3:window.pressedKeys.add("browser_back");    break;
-            case 4:window.pressedKeys.add("Browser_forward"); break;
+            case 4:window.pressedKeys.add("browser_forward"); break;
         }
        if(e.button == 2)e.preventDefault();//this prevents the context menu
     })
@@ -30,7 +30,7 @@ function setUpKeyEvents(clickContext){
             case 1:window.pressedKeys.delete("left_click");      break;
             case 2:window.pressedKeys.delete("right_click");     break;
             case 3:window.pressedKeys.delete("browser_back");    break;
-            case 4:window.pressedKeys.delete("Browser_forward"); break;
+            case 4:window.pressedKeys.delete("browser_forward"); break;
         }
     })
     document.addEventListener("keydown",(e)=>{

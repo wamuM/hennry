@@ -11,7 +11,7 @@ function sayRandomJoke(category,meta ={}){
   console.log(`karen.js :: ${category} type joke summoned as:\n${joke}`)
   p.innerHTML = joke
   p.style.display = "block"
-  setTimeout(()=>{p.style.display = "none"},joke.split(" ")*200)
+  setTimeout(()=>{p.style.display = "none"},joke.split(" ").length*4000)
 }
 
 /**
