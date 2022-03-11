@@ -1,4 +1,4 @@
-//? This file has the class that defines what a GameObject is 
+ //? This file has the class that defines what a GameObject is 
 class GameObject{
     /**
      * 
